@@ -1,0 +1,72 @@
+{
+  "instruction_set": [
+    {
+      "description": "TestCase01: Verify Stack Overflow Homepage URL",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "Navigate"
+        },
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "stackoverflow"
+        }
+      ],
+      "error_out": "Launch the Stack Overflow website",
+      "hint": "Ensure you go to stack overflow website"
+    },
+    {
+      "description": "TestCase02: Search for a Specific Topic and Verify Results (Case sensitive)",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "TypeElement"
+        },
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "comprehension"
+        }
+      ],
+      "error_out": "Search for Python list comprehension",
+      "hint": "Ensure you search for Python list comprehension"
+    },
+    {
+      "description": "TestCase03: Verify Tag Filtering Functionality",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "GetElementText"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "javascript"
+        }
+      ],
+      "error_out": "Search for and select the \"javascript\" tag",
+      "hint": "Ensure you search for and select the \"javascript\" tag. Ensure you read that the element has text \"javascript\""
+    },
+    {
+      "description": "TestCase04: Verify Sorting by \"Votes\" on Query Page",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "ClickElement"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": ""
+        }
+      ],
+      "error_out": "Verify that sorting questions by \"Votes\" displays the most upvoted questions first",
+      "hint": "Ensure you are clicking on the \"Votes\" button"
+    }
+  ]
+}
