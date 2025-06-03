@@ -52,7 +52,7 @@
       "hint": "Ensure you search for and select the \"javascript\" tag. Ensure you read that the element has text \"javascript\""
     },
     {
-      "description": "TestCase04: Verify Sorting by \"Votes\" on Query Page",
+      "description": "TestCase04: Verify Sorting by \"Score\" on Query Page",
       "validations": [
         {
           "object_notation": "COMMAND",
@@ -65,8 +65,8 @@
           "expected_value": ""
         }
       ],
-      "error_out": "Verify that sorting questions by \"Votes\" displays the most upvoted questions first",
-      "hint": "Ensure you are clicking on the \"Votes\" button"
+      "error_out": "Verify that sorting questions by \"Score\" displays the most upvoted questions first",
+      "hint": "Ensure you are clicking on the \"Score\" button"
     }
   ]
 }
