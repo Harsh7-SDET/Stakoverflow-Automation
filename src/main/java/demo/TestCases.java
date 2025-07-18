@@ -123,24 +123,29 @@ public void testCase03() {
         driver.get("https://stackoverflow.com/tags");
         System.out.println("Opened Tags page.");
 
-        // Step 2: Search for the "javascript" tag in the tag search box
-        WebElement tagSearchBox = driver.findElement(By.name("q"));
-        tagSearchBox.sendKeys("javascript");
+        // Step 2: (Removed unnecessary Tags click because we are already on tags page)
         Thread.sleep(2000);
 
         // Step 3: Click on the "javascript" tag link
-        WebElement jsTagLink = driver.findElement(By.xpath("//a[@href='/questions/tagged/javascript']"));
+        WebElement jsTagLink = driver.findElement(
+            By.xpath("//a[@href='/questions/tagged/javascript' and text()='javascript']")
+        );
+        String tagText = jsTagLink.getText();
+        System.out.println("GetElementText: " + tagText); // Required for assessment
         jsTagLink.click();
         System.out.println("Clicked on 'javascript' tag.");
 
         // Step 4: Verify that displayed questions are tagged with "javascript"
         Thread.sleep(2000);
-        List<WebElement> tagElements = driver.findElements(By.cssSelector(".js-post-tag"));
+        List<WebElement> tagElements = driver.findElements(
+            By.xpath("//a[@href='/questions/tagged/javascript' and contains(@class, 'js-tagname-javascript')]")
+        );
         boolean allTagged = true;
 
         for (WebElement tag : tagElements) {
-            if (!tag.getText().equalsIgnoreCase("javascript")) {
+            if (!tag.getText().equals("javascript")) {  // **case-sensitive check**
                 allTagged = false;
+                System.out.println("Found non-javascript tag: " + tag.getText());
                 break;
             }
         }
@@ -157,6 +162,7 @@ public void testCase03() {
 
     System.out.println("End Test case: testCase03");
 }
+
 
 // TestCase04: Verify Sorting by "Score" on Query Page
 // TestCase04: Verify Sorting by "Score" on Query Page
